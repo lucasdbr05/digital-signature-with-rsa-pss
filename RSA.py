@@ -100,7 +100,7 @@ class RSA:
         return (t, q)
 
 
-    def miller_rabin(self, n: int, its: int = 10) -> bool:
+    def miller_rabin(self, n: int, its: int = 40) -> bool:
         if n <= 4: 
             return (n == 2 or n == 3)
         
