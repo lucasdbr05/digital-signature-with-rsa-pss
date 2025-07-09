@@ -2,7 +2,6 @@ from math_utils import fast_exponentiation, gcd, randint
 import subprocess
 import base64
 import subprocess
-import os
 
 class RSA:
     def __init__(self):
