@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     signature, salt = pss.sign(m)
     print("Assinatura:", signature)
-    print("Salt:", salt.hex())
+    print("Salt:", salt)
 
     valid = pss.verify(m, signature, salt)
     print("is valid?", valid)
