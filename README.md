@@ -19,13 +19,11 @@ Este projeto implementa um sistema de assinatura digital com padding customizado
   - Escolha entre assinar um texto digitado ou um arquivo.
   - Clique em "Assinar Mensagem" ou "Assinar Arquivo" para gerar a assinatura digital.
   - A assinatura e o salt são exibidos em base64, com botões para fácil cópia.
-  - É exibido também um dicionário contendo a chave privada, hash da mensagem e salt utilizados na assinatura.
 
 - **Verificar Assinatura Digital**
   - Escolha entre verificar um texto ou um arquivo.
   - Informe a assinatura (base64) e o salt (base64) gerados anteriormente.
   - Clique em "Verificar Assinatura" para validar a assinatura.
-  - É exibido um dicionário contendo a chave pública, hash da mensagem e salt utilizados na verificação.
   - O resultado da verificação é mostrado na tela (válida ou inválida).
 
 ## Como funciona o RSA neste projeto
