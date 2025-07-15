@@ -36,15 +36,15 @@ if tipo == "Texto":
             st.session_state["salt_text"] = salt
             st.success("Mensagem assinada!")
             st.write("Dicionário da assinatura:")
-            st.code(pprint(dict_assinatura), language="python")
+            pprint(dict_assinatura)
         else:
             st.warning("Digite uma mensagem para assinar.")
     if assinatura:
         st.code(assinatura, language="text")
-        st.button("Copiar assinatura", key="copy_assinatura_text")
+        st.text_input("Assinatura pronta para copiar", value=assinatura, key="assinatura_text_input")
     if salt:
         st.code(salt, language="text")
-        st.button("Copiar salt", key="copy_salt_text")
+        st.text_input("Salt pronto para copiar", value=salt, key="salt_text_input")
 else:
     arquivo = st.file_uploader("Selecione um arquivo para assinar", type=None)
     assinatura = st.session_state.get("assinatura_file", "")
@@ -63,14 +63,13 @@ else:
         st.session_state["salt_file"] = salt
         st.success("Arquivo assinado!")
         st.write("Dicionário da assinatura:")
-        st.code(pprint(dict_assinatura), language="python")
+        pprint(dict_assinatura)
     if assinatura:
         st.code(assinatura, language="text")
-        st.button("Copiar assinatura", key="copy_assinatura_file")
     if salt:
         st.code(salt, language="text")
-        st.button("Copiar salt", key="copy_salt_file")
-
+        
+        
 st.header("Verificar Assinatura Digital")
 ver_tipo = st.radio("Tipo de entrada para verificação", ("Texto", "Arquivo"), key="ver_tipo")
 

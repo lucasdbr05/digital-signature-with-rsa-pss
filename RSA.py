@@ -1,7 +1,6 @@
 from math_utils import fast_exponentiation, gcd, randint
-import subprocess
 import base64
-import subprocess
+import os
 
 class RSA:
     def __init__(self):
@@ -13,7 +12,7 @@ class RSA:
             "n": f"{self.keys_dir}/public/n.pem",
             "e": f"{self.keys_dir}/public/e.pem"
         }
-        subprocess.run(["bash", "create-files.sh"])
+        self.create_key_files()
         self.create_keys()
 
     def encrypt(self, M: int) -> int:
@@ -35,12 +34,19 @@ class RSA:
         e = self.gen_public_exponent(phi_n)
         inv_e = self.multiplicative_inverse(e, phi_n)
 
-        subprocess.run(["bash", "create-files.sh"])
         self.create_pem_key(p, self.key_paths["p"])
         self.create_pem_key(q, self.key_paths["q"])
         self.create_pem_key(inv_e, self.key_paths["inv_e"])
         self.create_pem_key(n, self.key_paths["n"])
         self.create_pem_key(e, self.key_paths["e"])
+
+    def create_key_files(self):
+        for path in self.key_paths.values():
+            dir_path = os.path.dirname(path)
+            os.makedirs(dir_path, exist_ok=True)
+            if not os.path.exists(path):
+                with open(path, 'w') as f:
+                    f.write("")
 
     def create_pem_key(self, value: int, path: str) -> None:
         value_bytes = value.to_bytes((value.bit_length() + 7) // 8, byteorder='big')
