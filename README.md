@@ -2,6 +2,16 @@
 
 Este projeto implementa um sistema de assinatura digital com padding customizado utilizando RSA com o padrão de assinatura PSS.
 
+### Integrantes:
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/pedro-neris" target="_blank"><img style="border-radius: 50%;" src="https://github.com/pedro-neris.png" width="100px;" alt="Pedro Neris"/><br /><sub><b>Pedro Neris - 231018964</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/lucasdbr05" target="_blank"><img style="border-radius: 50%;" src="https://github.com/lucasdbr05.png" width="100px;" alt="Lucas Lima"/><br /><sub><b>Lucas Lima - 231003406</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/rafaelghiorzi" target="_blank"><img style="border-radius: 50%;" src="https://github.com/rafaelghiorzi.png" width="100px;" alt="Rafael Dias"/><br /><sub><b>Rafael Dias - 232006144</b></sub></a><br /></td>
+</table>
+
+
 ## Como rodar
 
 1. Instale as dependências:
