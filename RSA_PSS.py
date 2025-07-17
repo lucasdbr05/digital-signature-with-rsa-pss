@@ -26,6 +26,7 @@ class RSAPSS:
         em = b'\x00' + b'\x01' + ps + b'\x00' + message_hash + salt
         em = int.from_bytes(em, byteorder='big')
         
+        # Use RSA decrypt to sign with private key
         signature = self.rsa.decrypt(em) 
 
         signature_b64 = base64.b64encode(signature.to_bytes(em_len, byteorder='big')).decode()
@@ -42,8 +43,11 @@ class RSAPSS:
         salt = base64.b64decode(salt_b64)
        
         signature = int.from_bytes(signature_bytes, byteorder='big')
+        
+        # Use RSA encrypt to verify with public key
         em = self.rsa.encrypt(signature)  
         em = em.to_bytes(em_len, byteorder='big')
+        
         if not (em[0] == 0x00 and em[1] == 0x01):
             return False
         ps_len = em_len - hlen - self.salt_len - 3
