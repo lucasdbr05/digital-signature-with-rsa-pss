@@ -129,9 +129,7 @@ class RSA:
                 p = (1 << (msb-1)) + 1
 
     def gen_public_exponent(self, phi_n:int) -> int:
-        e = randint(2, phi_n-1)
-        if e % 2 == 0: 
-            e += 1
+        e = 65537
 
         while gcd(e, phi_n) != 1:
             e += 2
