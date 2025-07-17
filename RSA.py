@@ -117,7 +117,7 @@ class RSA:
         return True
 
 
-    def get_random_prime(self, msb: int = 2048) -> int:
+    def get_random_prime(self, msb: int = 1024) -> int:
         p = randint(1 << (msb-1), (1 << (msb)) - 1)
         if p % 2 == 0: 
             p += 1
